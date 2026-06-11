@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+    /* Light Theme (default) */
+    --minimal-bg: #f8fafc;
+    --minimal-surface: #ffffff;
+    --minimal-surfaceHover: #f1f5f9;
+    --minimal-border: #e2e8f0;
+    --minimal-text: #334155;
+    --minimal-textHover: #0f172a;
+    --minimal-accent: #0d9488;
+    --minimal-accentHover: #0f766e;
+    --minimal-white: #0f172a; /* In light mode, 'white' becomes dark slate for contrast */
+  }
+  
+  :root.dark {
+    /* Dark Theme */
+    --minimal-bg: #0a0a0a;
+    --minimal-surface: #111111;
+    --minimal-surfaceHover: #1a1a1a;
+    --minimal-border: #222222;
+    --minimal-text: #a3a3a3;
+    --minimal-textHover: #ededed;
+    --minimal-accent: #14b8a6;
+    --minimal-accentHover: #0d9488;
+    --minimal-white: #ffffff;
+  }
+  
+  body {
+    background-color: var(--minimal-bg);
+    color: var(--minimal-text);
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* Custom Scrollbar for a more VS Code like feel */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Cleaned up unused legacy CSS */
