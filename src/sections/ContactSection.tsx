@@ -25,7 +25,7 @@ export default function ContactSection() {
           <span className="text-minimal-accent">Something Great</span>
         </h3>
         
-        <p className="text-minimal-text text-lg leading-relaxed mb-12">
+        <p className="text-minimal-text text-base md:text-lg leading-relaxed mb-8 md:mb-12">
           Currently seeking new opportunities to contribute to exciting projects. 
           Whether you have a question, a project idea, or just want to say hi, 
           I'll try my best to get back to you!
@@ -33,13 +33,13 @@ export default function ContactSection() {
 
         <a 
           href={`mailto:${aboutMe.email}`}
-          className="inline-flex items-center gap-3 bg-minimal-white text-minimal-bg px-8 py-4 rounded-full font-bold text-lg hover:bg-minimal-accent hover:text-minimal-white transition-colors duration-300 mb-16"
+          className="inline-flex items-center gap-3 bg-minimal-accent text-[#ffffff] px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:opacity-90 transition-opacity duration-300 mb-8 md:mb-16"
         >
           Say Hello
           <ArrowRight size={20} />
         </a>
 
-        <div className="flex justify-center items-center gap-8 border-t border-minimal-border pt-12">
+        <div className="flex justify-center items-center gap-6 md:gap-8 border-t border-minimal-border pt-8 md:pt-12">
           <a 
             href={aboutMe.github}
             target="_blank"
@@ -58,7 +58,7 @@ export default function ContactSection() {
           </a>
           <a 
             href={`mailto:${aboutMe.email}`}
-            className="text-minimal-text hover:text-minimal-white transition-colors"
+            className="text-minimal-text hover:text-minimal-accent transition-colors"
           >
             <Mail size={24} />
           </a>
