@@ -11,11 +11,11 @@ const sections = [
 
 export default function Navigation() {
   const [activeSection, setActiveSection] = useState('home');
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     // Initial theme set
-    document.documentElement.classList.add('dark');
+    document.documentElement.classList.remove('dark');
 
     const handleScroll = () => {
       const pageYOffset = window.scrollY;
