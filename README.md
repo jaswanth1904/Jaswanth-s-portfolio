@@ -1,7 +1,5 @@
 # Jaswanth's Personal Developer Portfolio 🚀
 
-![Portfolio Preview Banner](https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200&auto=format&fit=crop)
-
 A premium, highly-interactive, and fully responsive personal developer portfolio built to showcase modern web development skills, feature-rich projects, and professional experience.
 
 ## ✨ Features
