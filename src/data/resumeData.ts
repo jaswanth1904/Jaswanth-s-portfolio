@@ -47,10 +47,10 @@ export const projects = [
     title: "SN Enviro Ticket Raising System",
     slug: "sn-enviro-ticket-raising-system",
     github: "https://github.com/jaswanth1904/SN-Enviro-Ticket-Raising-System",
-    live: "https://jaswanth1904-snenviroticket.vercel.app/",
+    live: "https://snenvirotickets.in/",
     description: "A modern, high-performance, dual-interface issue tracking and telemetry management system designed specifically for field operations and centralized administration.",
     tech: ["React.js", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB", "Socket.io"],
-    image: "https://opengraph.githubassets.com/1/jaswanth1904/SN-Enviro-Ticket-Raising-System",
+    image: "https://api.microlink.io/?url=https://snenvirotickets.in/&screenshot=true&meta=false&embed=screenshot.url",
     highlights: [
       "Dual Interface Architecture (Admin & Field Portal)",
       "Real-Time Socket Updates & Telemetry Data",
