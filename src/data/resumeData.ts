@@ -43,6 +43,22 @@ export const skills = {
 
 export const projects = [
   {
+    id: 7,
+    title: "SN Enviro Ticket Raising System",
+    slug: "sn-enviro-ticket-raising-system",
+    github: "https://github.com/jaswanth1904/SN-Enviro-Ticket-Raising-System",
+    live: "https://jaswanth1904-snenviroticket.vercel.app/",
+    description: "A modern, high-performance, dual-interface issue tracking and telemetry management system designed specifically for field operations and centralized administration.",
+    tech: ["React.js", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB", "Socket.io"],
+    image: "https://opengraph.githubassets.com/1/jaswanth1904/SN-Enviro-Ticket-Raising-System",
+    highlights: [
+      "Dual Interface Architecture (Admin & Field Portal)",
+      "Real-Time Socket Updates & Telemetry Data",
+      "Automated Email Dispatching",
+      "Dynamic SLA Monitoring"
+    ]
+  },
+  {
     id: 1,
     title: "E2F Holidays - Travel Booking Platform",
     slug: "e2f-holidays",
