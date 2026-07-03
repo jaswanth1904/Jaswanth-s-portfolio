@@ -15,7 +15,7 @@ export default function HomeSection() {
             <div className="w-40 h-40 md:w-56 md:h-56 shrink-0 relative group">
               <div className="absolute inset-0 rounded-full bg-minimal-accent opacity-20 blur-2xl group-hover:opacity-40 transition-opacity duration-700"></div>
               <img 
-                src="https://avatars.githubusercontent.com/jaswanth1904" 
+                src="https://avatars.githubusercontent.com/jaswanth1904?v=2" 
                 alt={aboutMe.name} 
                 className="w-full h-full object-cover rounded-full relative z-10 border-2 border-minimal-border"
               />
