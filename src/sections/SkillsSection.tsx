@@ -1,7 +1,6 @@
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { skills } from '../data/resumeData';
 
-// Helper to map skill names to devicon SVG paths
 const getTechIcon = (skillName: string) => {
   const name = skillName.toLowerCase();
   if (name.includes('react')) return 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg';
@@ -28,6 +27,26 @@ const getTechIcon = (skillName: string) => {
   return null;
 };
 
+const categoryContainerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08
+    }
+  }
+};
+
+const skillCardVariants: Variants = {
+  hidden: { opacity: 0, y: 15, scale: 0.9 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1,
+    transition: { type: "spring", stiffness: 260, damping: 20 }
+  }
+};
+
 export default function SkillsSection() {
   const categories = [
     { title: 'Frontend', items: skills.frontend },
@@ -38,48 +57,70 @@ export default function SkillsSection() {
   ];
 
   return (
-    <section id="skills" className="min-h-screen py-24 flex items-center border-t border-minimal-border/50">
+    <section id="skills" className="min-h-screen py-24 flex items-center border-t border-minimal-border/50 relative">
       <div className="w-full">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-sm font-bold tracking-[0.3em] text-minimal-accent uppercase mb-12"
+          className="text-xs sm:text-sm font-bold tracking-[0.3em] text-minimal-accent uppercase mb-12 flex items-center gap-3"
         >
-          02. Skills
+          <span className="w-8 h-[2px] bg-minimal-accent rounded-full inline-block" />
+          02. Skills & Technologies
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {categories.map((category, idx) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="bg-minimal-surface/40 backdrop-blur-sm border border-minimal-border rounded-2xl p-6 hover:border-minimal-accent/40 transition-colors shadow-sm"
             >
-              <h3 className="text-xl font-bold text-minimal-white mb-6 pb-2 border-b border-minimal-border">
-                {category.title}
+              <h3 className="text-lg font-bold text-minimal-white mb-6 pb-3 border-b border-minimal-border/70 flex items-center justify-between">
+                <span>{category.title}</span>
+                <span className="text-xs font-mono text-minimal-accent bg-minimal-accent/10 px-2.5 py-0.5 rounded-full">
+                  {category.items.length}
+                </span>
               </h3>
-              <div className="flex flex-wrap gap-4">
+
+              <motion.div 
+                variants={categoryContainerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="grid grid-cols-3 gap-3"
+              >
                 {category.items.map(skill => {
                   const iconUrl = getTechIcon(skill);
+                  const cleanName = skill.replace(' (ES6+)', '').replace(' (Pandas, NumPy)', '');
                   return (
-                    <div key={skill} className="flex flex-col items-center justify-center p-3 bg-minimal-surface border border-minimal-border rounded-xl hover:border-minimal-accent/50 hover:-translate-y-1 transition-all duration-300 w-24">
+                    <motion.div 
+                      key={skill} 
+                      variants={skillCardVariants}
+                      whileHover={{ y: -6, scale: 1.05, boxShadow: "0 10px 25px -5px rgba(20, 184, 166, 0.2)" }}
+                      className="group flex flex-col items-center justify-center p-3 bg-minimal-surface border border-minimal-border rounded-xl hover:border-minimal-accent transition-all duration-300 cursor-pointer"
+                    >
                       {iconUrl ? (
-                        <img src={iconUrl} alt={skill} className="w-8 h-8 mb-2" />
+                        <img 
+                          src={iconUrl} 
+                          alt={skill} 
+                          className="w-8 h-8 mb-2 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300" 
+                        />
                       ) : (
-                        <div className="w-8 h-8 mb-2 flex items-center justify-center bg-minimal-bg rounded-full text-minimal-accent font-bold text-xs">
-                          {skill.charAt(0)}
+                        <div className="w-8 h-8 mb-2 flex items-center justify-center bg-minimal-bg rounded-full text-minimal-accent font-bold text-xs group-hover:scale-110 transition-transform">
+                          {cleanName.charAt(0)}
                         </div>
                       )}
-                      <span className="text-xs text-minimal-text text-center leading-tight truncate w-full">
-                        {skill.replace(' (ES6+)', '').replace(' (Pandas, NumPy)', '')}
+                      <span className="text-[11px] font-medium text-minimal-text text-center leading-tight truncate w-full group-hover:text-minimal-white transition-colors">
+                        {cleanName}
                       </span>
-                    </div>
+                    </motion.div>
                   );
                 })}
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>
